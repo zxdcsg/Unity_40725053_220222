@@ -993,6 +993,7 @@ GameObject:
   - component: {fileID: 734354340}
   - component: {fileID: 734354341}
   - component: {fileID: 734354342}
+  - component: {fileID: 734354343}
   m_Layer: 0
   m_Name: "\u523A\u5BA2"
   m_TagString: Untagged
@@ -1134,6 +1135,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+--- !u!114 &734354343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734354336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84514ce2b77dac04babba8e6e452632b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detaWeapon: {fileID: 11400000, guid: 1c128d3424e80b8449652c8298c9e69b, type: 2}
 --- !u!1 &813807534
 GameObject:
   m_ObjectHideFlags: 0
