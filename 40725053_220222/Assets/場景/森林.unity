@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 225405376}
   - component: {fileID: 225405375}
   - component: {fileID: 225405374}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "\u7A7A\u6C23\u7246 \u4E0B"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -994,7 +994,7 @@ GameObject:
   - component: {fileID: 734354341}
   - component: {fileID: 734354342}
   - component: {fileID: 734354343}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u523A\u5BA2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1485,7 +1485,7 @@ GameObject:
   - component: {fileID: 916103794}
   - component: {fileID: 916103793}
   - component: {fileID: 916103792}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "\u7A7A\u6C23\u7246 \u5DE6"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1883,7 +1883,7 @@ GameObject:
   - component: {fileID: 1243140679}
   - component: {fileID: 1243140678}
   - component: {fileID: 1243140677}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "\u7A7A\u6C23\u7246 \u4E0A"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1992,7 +1992,7 @@ GameObject:
   - component: {fileID: 1330261081}
   - component: {fileID: 1330261080}
   - component: {fileID: 1330261079}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "\u7A7A\u6C23\u7246 \u53F3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
