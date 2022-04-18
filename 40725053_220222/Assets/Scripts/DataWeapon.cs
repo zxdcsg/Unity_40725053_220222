@@ -35,7 +35,7 @@ namespace Oliya
         //資料類型[] 陣列 - 資料結構
         //作用:儲存多筆相同類型的資料
         [Header("生成位置")]
-        public Vector3[] v3SpawnPoint;
+        public  Vector3[] v3SpawnPoint;
         [Header("武器預置物")]
         public GameObject goWeapon;
         [Header("飛行方向")]

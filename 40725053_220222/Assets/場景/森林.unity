@@ -1148,6 +1148,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detaWeapon: {fileID: 11400000, guid: 1c128d3424e80b8449652c8298c9e69b, type: 2}
+  detaWeapon_2: {fileID: 11400000, guid: 210587a7975043f49a16a7fce95fe180, type: 2}
+  Flag: 0
+  Flag_2: 0
+  speed: 5
 --- !u!1 &813807534
 GameObject:
   m_ObjectHideFlags: 0

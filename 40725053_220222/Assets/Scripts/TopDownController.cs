@@ -25,15 +25,18 @@ namespace Oliya
         private float speed = 10.5f;
         private string parameterRun = "開關跑步";
         private string parameterDead = "開關死亡";
+        private string parameterAtk = "開關攻擊";
+        private string parameterAtk_2 = "開關攻擊_2";
         private Animator ani;
         private Rigidbody2D rig;
         private float h;
         private float v;
+        private WeaponSystem wps;
         #endregion
 
         #region 事件:程式入口(Unity)，提供開發驅動系統的窗口
         //喚醒事件:播放遊戲執行一次，處理初始化，處理初始化，取得資料，資料初始值
-        private void Awake()
+        public void Awake()
         {
             //輸出(訊息)，將訊息輸出到Unity Console(儀錶板) Ctrl + Shift + c
             //print("我是喚醒事件~");
@@ -42,6 +45,7 @@ namespace Oliya
             //<類型>泛型:指示任何類型
             ani = GetComponent<Animator>();
             rig = GetComponent<Rigidbody2D>();
+            wps = GetComponent<WeaponSystem>();
         }
 
         //更新事件:播放遊戲以每秒的60次執行，60FPS(Framo Per Second)
@@ -54,6 +58,7 @@ namespace Oliya
             //呼叫語法：方法名稱(對應引數);
             GetInput();
             Move();
+            Atk();
         }
         #endregion
 
@@ -97,6 +102,27 @@ namespace Oliya
             //水平 >=0 角度 0 否則 角度 180
             //變形元件.歐拉角 = 新 三維向量(X，Y，Z)
             transform.eulerAngles = new Vector3(0, h>=0 ? 0 : 180, 0);
+        }
+        private void Atk()
+        {
+            if (wps.Flag==1)         
+            {
+                //print("攻擊");
+                ani.SetBool(parameterAtk, true);
+            }
+            if (wps.Flag == 0)
+            {
+                ani.SetBool(parameterAtk, false);
+            }
+            if (wps.Flag_2 == 1)
+            {
+                //print("攻擊_2");
+                ani.SetBool(parameterAtk_2, true);
+            }
+            if (wps.Flag_2 == 0)
+            {
+                ani.SetBool(parameterAtk_2, false);
+            }
         }
         #endregion
     }
