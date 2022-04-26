@@ -26,7 +26,6 @@ namespace Oliya
         private string parameterRun = "開關跑步";
         private string parameterDead = "開關死亡";
         private string parameterAtk = "開關攻擊";
-        private string parameterAtk_2 = "開關攻擊_2";
         private Animator ani;
         private Rigidbody2D rig;
         private float h;
@@ -113,15 +112,6 @@ namespace Oliya
             if (wps.Flag == 0)
             {
                 ani.SetBool(parameterAtk, false);
-            }
-            if (wps.Flag_2 == 1)
-            {
-                //print("攻擊_2");
-                ani.SetBool(parameterAtk_2, true);
-            }
-            if (wps.Flag_2 == 0)
-            {
-                ani.SetBool(parameterAtk_2, false);
             }
         }
         #endregion

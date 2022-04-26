@@ -13,22 +13,18 @@ namespace Oliya
     {
         [SerializeField, Header("武器資料")]
         private DataWeapon detaWeapon;
-        [SerializeField, Header("武器資料_2")]
-        private DataWeapon detaWeapon_2;
+        [SerializeField, Header("武器刪除時間"), Range(0, 10)]
+        private float destoryWeaponTime = 3.5f;
         /// <summary>
         /// 計時器
         /// </summary>
         private float timer;
-        private float timer_2;
         private float timer_atk;
-        private float timer_atk_2;
         private float timer_atk_speed;
-        private float timer_atk_speed_2;
         //繪製圖示事件 ODG
         //作用:在編輯器內輔助用，執行檔內不會出現
         //旗子(判斷式)
         public int Flag = 0;
-        public int Flag_2 = 0;
         private void OnDrawGizmos()
         {
             //1. 決定圖示顏色
@@ -44,10 +40,6 @@ namespace Oliya
             {
             Gizmos.DrawSphere(transform.position + detaWeapon.v3SpawnPoint[i], 0.1f);
             }
-            for (int i = 0; i < detaWeapon_2.v3SpawnPoint.Length; i++)
-            {
-                Gizmos.DrawSphere(transform.position + detaWeapon_2.v3SpawnPoint[i], 0.1f);
-            }
         }
 
         private void Start()
@@ -57,7 +49,6 @@ namespace Oliya
             Physics2D.IgnoreLayerCollision(6, 6); // 武器 與 武器 不碰撞
             Physics2D.IgnoreLayerCollision(6, 7); // 武器 與 牆壁 不碰撞
             timer_atk_speed = 0.1f;
-            timer_atk_speed_2 = 0.1f;
         }
         private void Update()
         {
@@ -81,7 +72,6 @@ namespace Oliya
         {
             //Time.deltaTime 一個影格的時間
             timer += Time.deltaTime;
-            timer_2 += Time.deltaTime;
             //print("經過的時間" + timer);
             //如果 計時器 大於等於 間隔時間 就生成 武器
 
@@ -100,22 +90,8 @@ namespace Oliya
                 temp.GetComponent<Rigidbody2D>().AddForce(detaWeapon.v3Direction * detaWeapon.speed);
                 timer = 0;
                 Flag = 1;
-            }
-            if (timer_2 >= detaWeapon_2.interval)
-            {
-                //print("生成武器");
-                //隨機值 = 隨機.範圍(最小值,最大值) - 整數不包含最大值
-                int random = Random.Range(0, detaWeapon_2.v3SpawnPoint.Length);
-                //座標
-                Vector3 pos = transform.position + detaWeapon_2.v3SpawnPoint[random];
-                //Quaternion四位元:紀錄角度資訊類型
-                //Quaternion.identity 零角度(0,0,0)
-                //暫存武器 = 生成(物件,座標,角度)
-                GameObject temp = Instantiate(detaWeapon_2.goWeapon, pos, Quaternion.identity);
-                //暫存武器.取得元件<鋼體>().添加推力(方向*速度)
-                temp.GetComponent<Rigidbody2D>().AddForce(detaWeapon_2.v3Direction * detaWeapon_2.speed);
-                timer_2 = 0;
-                Flag_2 = 1;
+                //刪除物件(要刪除的物件,延遲刪除時間)
+                Destroy(temp, destoryWeaponTime);
             }
 
             if (Flag == 1)
@@ -125,15 +101,6 @@ namespace Oliya
                 {
                  Flag = 0;
                  timer_atk = 0;
-                }
-            }
-            if (Flag_2 == 1)
-            {
-                timer_atk_2 += Time.deltaTime;
-                if (timer_atk_2 >= timer_atk_speed_2)
-                {
-                    Flag_2 = 0;
-                    timer_atk_2 = 0;
                 }
             }
         }
