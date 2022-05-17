@@ -15,7 +15,6 @@ namespace Oliya
         private float delay = 1;
         [SerializeField, Header("生成間隔"), Range(0, 3)]
         private float interval = 0.7f;
-
         private void Awake()
         {
             //重複呼叫(方法名稱,延遲時間,間隔時間)

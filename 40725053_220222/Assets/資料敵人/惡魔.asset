@@ -15,7 +15,7 @@ MonoBehaviour:
   speed: 2
   attack: 10
   cd: 3.5
-  hp: 100
+  hp: 5
   expDroProbaility: 0.8
   typeExp: 0
   stopDistance: 1
